@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper, total={6.5in, 8.5in}]{geometry}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+filecolor=magenta
+urlcolor=cyan,
+}
+\parindent 0 px
+\title{\textbf{\huge{\hrule\hrule\\[5pt] \textcolor{black}{A "Not So Obvious" Homeomorphism!}\\[5pt]\hrule\hrule}}}
+\author{\textbf{Nripendra Kr Deb}}
+\date{October 2023}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem:}
+Let $p:\widetilde{X}\to X$ be a double cover and $X$ is path connected and locally path connected. If the index of $\pi_1(\widetilde{X},\widetilde{x}_0)$ in $\pi_1(X,x_0)$ is one, then show that $\widetilde{X}$ is homeomorphic to $X\sqcup X$.\\
+\section*{Attempted Solution :} 
+Let's first prove some important lemmas that will be used later in solving the main problem.\\[5pt]
+\textbf{Lemma 1:} Let $p:\widetilde{X}\to X$ be covering map. If the induced map $p_{*}:\pi_1(\widetilde{X},\tilde{x}_0)\to \pi_1(X,x_0)$ is surjective then loops based at $x_0$ lift to loops based at $\Tilde{x}_0$ under $p$.
+\begin{proof}
+ Consider any loop $\gamma$ based at $x_0$ in $X$. Since $p_{*}$ is surjective there exists a loop $\eta$ based at $\Tilde{x}_0$ in $\widetilde{X}$ such that $[p\circ\eta]=[\gamma]$. Now consider the lift $\widetilde{\gamma}_{\widetilde{x}_0}$ of $\gamma$ starting at $\Tilde{x}_0$. Note that $\eta $ is the lift of $p\circ\eta$ starting at $\Tilde{x}_0$. Since $\gamma$ and $p\circ\eta$ are homotopic, hence their lifts starting from the same point must have the same endpoints i.e $\widetilde{\gamma}_{\widetilde{x}_0}(1)=\eta(1)=\Tilde{x}_0$. Hence $\gamma$ lifts to a loop based at $\Tilde{x}_0$.
+\end{proof}
+\textbf{Remark:} Note that lifts of loops based at $x_0$ starting from $\widetilde{x}_1$ must be loops as well. Indeed if $\widetilde{\gamma}_{\widetilde{x}_1}$ be a path starting a $\widetilde{x}_1$ then $\widetilde{\gamma}_{\widetilde{x}_1}(1)=\widetilde{x}_0$, but then $\overline{\widetilde{\gamma}}_{\widetilde{x}_1}$ is a lift of a loop based at $\widetilde{x}_0$, hence it must be loop.\\
+\textbf{Lemma 2:} Let $p:\widetilde{X}\to X$ be a covering map. If $X$ is locally path connected then so is $\widetilde{X}$. Moreover the path components of $\widetilde{X}$ are open.
+\begin{proof}
+    Let $\widetilde{x}\in\widetilde{X}$ and $p(\widetilde{x})=x$. Let $U$ be any open set containing $\tilde{x}$. If $U_x$ is an evenly covered nbd containing $x$, then $p(U)\cap U_x$ is an open set containing $x$. Since $X$ is locally path connected then $x$ has connected nbd $V$ contained in $p(U)\cap U_x$. Then $\widetilde{U}=p^{-1}(V)$ is connected nbd of $\widetilde{x}$ contained in $U$.\\
+    Let $C$ be a path component of $\widetilde{X}$. Let $\widetilde{x}\in C$, since $\widetilde{X}$ is locally path connected so there exists a path connected nbd $U$ of $\widetilde{x}$ contained in $\widetilde{X}$ and hence contained in $C$ as $C\cap U\neq \phi$. Thus $C$ is open.
+    \end{proof}
+We will use the notation $X\sqcup X=(X\times \{0\})\sqcup (X\times \{1\})$. We fix a point $x_0\in X$ and let $p^{-1}(x_0)=\{\Tilde{x}_0,\Tilde{x}_1\}$. Consider the map $$\Phi:X\sqcup X\to\widetilde{X}, (x,i)\mapsto \widetilde{\gamma}_{\Tilde{x}_i}(1)$$
+where $\widetilde{\gamma}_{\Tilde{x}_i}$ is the unique lift of $\gamma$ starting at $\Tilde{x}_i$ where $\gamma$ is the path joining $x_0$ and $x$ with $\gamma(0)=x_0$.\\[3pt]
+\textbf{$\bullet$ Is $\Phi$ well-defined?}\\ Consider any other path $\eta$ between $x_0$ and $x$ starting at $x_0$. Note that $\gamma*\bar{\eta}$ is a loop in $X$ based at $x_0$. Given $[\pi_1(X,x_0):p_{*}(\pi_1(\widetilde{X},\Tilde{x_0}))]=1$, hence $p_{*}$ is indeed surjective. So using \emph{lemma 1}, we find that  $\gamma *\bar{\eta}$ lifts to a loop in $\widetilde{X}$ based at $\Tilde{x}_i$. But note that $\widetilde{\gamma *\bar{\eta}}=\widetilde{\gamma}_{\tilde{x}_i}*\widetilde{\bar{\eta}}_{\widetilde{\gamma}_{\widetilde{x}_i}(1)}=\widetilde{\gamma}_{\tilde{x}_i}*$. Let $y\in p^{-1}(x_0)$, then it follows $\widetilde{\bar{\eta}}_{\widetilde{\gamma}(1)}=\overline{\widetilde{\eta}_y}$, but since $\widetilde{\gamma}_{\widetilde{x}_i}*\overline{\widetilde{\eta}_y}$ is a loop in $\tilde{X}$, so it follows that $y=\widetilde{x}_i$. Hence it follows that $\widetilde{\gamma}_{\widetilde{x}_i}(1)=\widetilde{\eta}_{\widetilde{x}_i}(1)$, which proves the fact that $\Phi$ is well-defined.\\[3pt]
+\textbf{$\bullet$ Is $\Phi$ one-one?}\\
+Let $\Phi((x,i))=\phi((y,j))$, hence it follows $\widetilde{\gamma}_{\widetilde{x}_i}(1)=\widetilde{\eta}_{\widetilde{x}_j}(1)$, where $\gamma$ and $\eta$ are the paths joining $x_0$ to $x$ and $y$ respectively. Thus, $p(\widetilde{\gamma}_{\widetilde{x}_i}(1))=p(\widetilde{\eta}_{\widetilde{x}_j}(1))\Rightarrow \gamma(1)=\eta(1)\Rightarrow x=y$. Note that $\widetilde{\gamma*\bar{\eta}}=\widetilde{\gamma}_{\widetilde{x}_i}*\overline{\widetilde{\eta}}_{\widetilde{x}_j}$, as $\gamma*\bar{\eta}$ is a loop based at $x_0$ hence its lift $\widetilde{\gamma}_{\widetilde{x}_i}*\overline{\widetilde{\eta}_{\widetilde{x}_j}}$ must be a loop, thus $\widetilde{\gamma}_{\widetilde{x}_i}(0)=\widetilde{\eta}_{\widetilde{x}_j}(0)\Rightarrow \widetilde{x}_i=\widetilde{x}_j\Rightarrow i=j.$ Hence $\Phi$ is an injective map.\\[3pt]
+\textbf{$\bullet$ Is $\Phi$ surjective?}\\
+Let $\widetilde{y}\in\widetilde{X}$, and $p(\widetilde{y})=y$ with $p^{-1}(y)=\{\widetilde{y},\widetilde{y}_1\}$. Since $X$ is path connected, consider the path $\gamma$ between $x_0$ and $y$ starting at $x_0$. Let $\widetilde{\gamma}_{\widetilde{x}_i}$ be the lift of $\gamma$ starting at $\widetilde{x}_i$. Then
+$\Phi(y,i)=\widetilde{\gamma}_{\widetilde{x}_i}(1)\in\{\widetilde{y},\widetilde{y}_1\}$, since $\Phi$ is one-one so for some $i\in\{0,1\}$, $\Phi(y,i)=\widetilde{y}$, which proves that $\Phi$ is in fact a surjection.\\[3pt]
+\textbf{$\bullet$ Is $\Phi$ continuous?}\\ 
+Consider the map $s_i:X\to\widetilde{X},x\mapsto \widetilde{ \gamma}_{\widetilde{x}_i}(1)$, we want to show that $s_i$ is continuous.
+Let $\widetilde{V}$ be an open set in $\widetilde{X}$, we need show that $s_{i}^{-1}(\widetilde{V})$ is open.
+%$$\Phi^{-1}(\widetilde{V})=\{(x,i)\in X\sqcup X\;|\;\Phi((x,i))=\widetilde{\gamma}_{\widetilde{x}_i}(1)\in\widetilde{V}\}$$
+Let $x\in s_{i}^{-1}(\widetilde{V})$. Let $U_x$
+ be an evenly covered nbd of $x$ by $p$ and $V_i$ be the sheet containing $s_i(x)$. Consider $V'=\widetilde{V}\cap V_i$ and $V=p(V')$ which is open since $p$ is an open map. Let $V_x$ be a path-connected open set contained in $v$ containing $x$. Our claim is $s_i(V_x)\subset \widetilde{V}$. Let $y\in V$, consider $\gamma_1$ to be the path joining $x_0$ and $x$ and $\gamma_2$ be a path in $V_x$ joining $x$ and $y$. Let $\gamma=\gamma_1*\gamma_2$, note that $\widetilde{x}=\widetilde{\gamma_1}_{\tilde{x}_i}(1)\in V'$ and $\widetilde{\gamma_1*\gamma_2}=\widetilde{\gamma_1}_{\widetilde{x}_i}*\widetilde{\gamma_2}_{\tilde{x}}$. Since $p\left.\right|_{V'}\to V$ is a homeomorphism. And since $\gamma_2$ is a path in $V$ so $\widetilde{\gamma_2}_{\tilde{x}}=p^{-1}\circ\gamma_2$ by uniqueness of path lifting and it must be a path in $V'$. Hence $\widetilde{\gamma_2}_{\tilde{x}}(1)=s_i(y)\in V'\subset \widetilde{V}$, which gives $s_i(V_x)\subset \widetilde{V}$.\\
+ Consider the projection map $q_i:X\times\{i\}\to X,(x,i)\mapsto x$, which is clearly continuous. Note that we can write $\Phi\left.\right|_{X\times \{i\}}=s_i\circ q_i$ which is continuous being the composition of two continuous functions. Now $X\times\{0\}$ and $X\times\{1\}$ are disjoint open sets hence using pasting lemma $\Phi:X\sqcup X\to\widetilde{X}$ is also continuous. \\[4 pt]
+ Our next claim is that there is no path joining $\widetilde{x}_0$ and $\widetilde{x}_1$. Indeed if $\gamma$ is such a path in $\widetilde{X}$ with $\gamma(0)=\widetilde{x}_0$. Then clearly $\gamma $ is a lift of the path $p\circ\gamma$.
+ But $p(\gamma(0))=p(\gamma(1))=x_0$, hence $p\circ\gamma$ is a loop but its lift $\gamma$ is not, contradiction. By the surjectivity of the map $\Phi$ it follows that $\widetilde{X}$ exactly two components $C_0$ and $C_1$ containing $\widetilde{x}_0$ and $\widetilde{x}_1$ respectively.\\
+ $\bullet$ \textbf{$\Phi$ is a homeomorphism}\\
+ We claim that there is no path joining $\widetilde{x}_0$ and $\widetilde{x}_1$. Indeed if $\gamma$ is such a path in $\widetilde{X}$ with $\gamma(0)=\widetilde{x}_0$. Then clearly $\gamma $ is a lift of the path $p\circ\gamma$.
+ But $p(\gamma(0))=p(\gamma(1))=x_0$, hence $p\circ\gamma$ is a loop but its lift $\gamma$ is not, contradiction. By the surjectivity of the map $\Phi$ it follows that $\widetilde{X}$ exactly two components $C_0$ and $C_1$ containing $\widetilde{x}_0$ and $\widetilde{x}_1$ respectively.\\
+ Consider the map $\psi:\widetilde{X}\to X\sqcup X,\widetilde{x}\mapsto (p(\widetilde{x}),i)$ if $\widetilde{x}\in C_i$. Note that $\psi=\Phi^{-1}$. Now our goal is to show that $\psi$ is continuous too. Let $U\times \{i\}$ be an open set in $X\sqcup X$. Then $\psi^{-1}(U\times \{i\})=\{\widetilde{x}\in\widetilde{X} : \psi(\widetilde{x})\in U\times\{i\}\}=C_i\cap p^{-1}(U)$ which is open in $\widetilde{X}$.\qed
+ \section*{Acknowledgement :}
+ $\bullet$ I had a discussion about this problem a few times with \emph{Swapnil}, \emph{Safarul} and \emph{Navprabhat}. Big thanks to them.\\
+ $\bullet$ The book \emph{Algebraic Topology} by \emph{Allen Hatcher} helped me a lot while solving this problem.\\[6pt]
+ \hrule
+ \begin{center}
+     \Large{\textbf{Thank You}}
+ \end{center}
+\end{document}

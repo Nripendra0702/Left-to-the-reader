@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper, total={7in, 8.5in}]{geometry}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usetikzlibrary{shapes,arrows,positioning}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+filecolor=magenta
+urlcolor=cyan,
+}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\parindent 0 px
+\title{\textbf{\Huge{\hrule\hrule\textcolor{blue}{${}$\\ Prime-Capturing Polynomial!!?}\\[12pt]\hrule\hrule}}}
+\author{\textbf{Nripendra Kumar Deb}}
+\date{October 2024}
+\begin{document}
+
+\maketitle
+
+\textbf{Problem :} Show that there exists \textcolor{red}{no} non-constant multivariate polynomial $f$ with integer coefficients such that for all naturals $x_1,\dots, x_n$ we have $f(x_1,\dots, x_n)$ is a prime.\\[4 pt]
+\textbf{Solution:} It is enough to prove that there is no such uni-variate polynomial. To the contrary lets assume $f$ is such a uni-variate polynomial. We will be using the fact that $$a\equiv b\; (\text{mod}\;m)\implies f(a)\equiv f(b)\; (\text{mod}\;m)$$
+We choose some $n_0\in\mathbb{N}$ such that \footnote{From our hypothesis $n_0=1$ also works}$|f(n_0)|>1$ and let $p=f(n_0)$, which must be a prime by our hypothesis. Then we have $$f(n_0+pt)\equiv f(n_0)\; (\text{mod}\;p)\quad t\in\mathbb{Z}$$
+But since $p$ divides $f(n_0)$ hence $p$ must divide $f(n_0+pt)$. But since $f(n_0+pt)$ is  a prime so we have $|f(n_0+pt)|=p$ for all $t\in\mathbb{Z}$, which contradicts the fact that $|f(x)|\to\infty$ as $x\to\infty.$ \qed\\[4pt]
+\textbf{HW 2 (ii):} Show that there exists \textcolor{red}{no} non-constant multivariate polynomial $f$ with rational coefficients such that for all naturals $x_1,\dots, x_n$ we have $f(x_1,\dots, x_n)$ is a prime.\\[4 pt]
+\textbf{Solution:} It is enough to prove that there is no such uni-variate polynomial. To the contrary lets assume $f$ is such a uni-variate polynomial. Note that we can write $$f(x)=\frac{g(x)}{d},\qquad d\in\mathbb{Z}\;\text{and}\; g(x)\in\mathbb{Z}[x]$$
+Let $f(1)=p$ which is a prime by our hypothesis. Then $g(1)=pd$ and we have $$g(1+pdt)\equiv g(1)\; (\text{mod}\;pd)\quad t\in\mathbb{Z}$$
+Hence $pd$ divides $g(1+pdt)$ and thus $p$ divides $f(1+pdt)=\frac{g(1+pdt)}{d}$. But $f(1+pdt)$ is a prime so $|f(1+pdt)|=p$ for all $t\in\mathbb{Z}$. It contradicts the fact that $f$ is a non-constant polynomial.\qed
+\end{document}
